@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Daily Bugle</string>
+    <string name="no_conn">No Internet Connection</string>
+    <string name="no_news">Well, its seems like there\'s no news at me moment. </string>
+</resources>
