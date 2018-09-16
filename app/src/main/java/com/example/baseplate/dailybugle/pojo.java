@@ -9,7 +9,6 @@ public class pojo {
     public pojo(String headlineID, String headID, String sectionID, String dateID, String urlID) {
         mHeadline = headlineID;
         mHead = headID;
-        //mAuthor = authorID;
         mSection = sectionID;
         mDate = dateID;
         mURL = urlID;
