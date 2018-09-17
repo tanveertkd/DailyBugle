@@ -129,7 +129,7 @@ public final class QueryUtils {
 
                 String author = null;
 
-                if(detailAuthor.length()>1){
+                if(detailAuthor.length()>0){
                     JSONObject authorTag = (JSONObject) detailAuthor.get(0);
                     author = authorTag.getString("webTitle");
                 }
