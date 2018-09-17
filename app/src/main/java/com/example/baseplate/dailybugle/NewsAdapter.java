@@ -49,13 +49,12 @@ public class NewsAdapter extends ArrayAdapter<pojo> {
         TextView headerView = (TextView) listItemView.findViewById(R.id.news_header);
         headerView.setText(currentNewItem.getHead());
 
-//        TextView authorView = (TextView) listItemView.findViewById(R.id.news_author);
-//        headerView.setText(currentNewItem.getAuthor());
+        TextView authorView = (TextView) listItemView.findViewById(R.id.news_author);
+        headerView.setText(currentNewItem.getAuthor());
 
         TextView sectionView = (TextView) listItemView.findViewById(R.id.news_section);
         sectionView.setText(currentNewItem.getSection());
 
-//        Date dateObject = new Date(currentNewItem.getTime());
         TextView dateView = (TextView) listItemView.findViewById(R.id.news_date);
         String formattedDate = formatDate(currentNewItem.getDate());
         dateView.setText(formattedDate);

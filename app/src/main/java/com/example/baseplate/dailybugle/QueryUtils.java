@@ -22,6 +22,9 @@ import java.util.List;
 public final class QueryUtils {
 
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
+    private static final int SUCCESS_CODE = 200;
+    private static final int READ_TIME_OUT = 1000;
+    private static final int CONN_TIME_OUT = 1500;
 
     private QueryUtils(){}
 
@@ -61,12 +64,12 @@ public final class QueryUtils {
         InputStream inputStream = null;
         try{
             urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setReadTimeout(1000);
-            urlConnection.setConnectTimeout(1500);
+            urlConnection.setReadTimeout(READ_TIME_OUT);
+            urlConnection.setConnectTimeout(CONN_TIME_OUT);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
-            if(urlConnection.getResponseCode() == 200){
+            if(urlConnection.getResponseCode() == SUCCESS_CODE){
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
@@ -122,7 +125,16 @@ public final class QueryUtils {
 
                 String headline = detailHeadline.getString("headline");
 
-                pojo pojo = new pojo(headline, header, section, date, url);
+                JSONArray detailAuthor = currentNews.getJSONArray("tags");
+
+                String author = null;
+
+                if(detailAuthor.length()>1){
+                    JSONObject authorTag = (JSONObject) detailAuthor.get(0);
+                    author = authorTag.getString("webTitle");
+                }
+
+                pojo pojo = new pojo(headline, header, section, date, url, author);
                 newsPojo.add(pojo);
             }
         } catch (JSONException e){

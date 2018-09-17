@@ -23,7 +23,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<pojo>>{
 
     public static final String LOG_TAG = MainActivity.class.getName();
-    public static final String API_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=headline&api-key=150b0c4d-fcad-470a-a579-0424d80c045a";
+//    public static final String API_REQUEST_URL = "https://content.guardianapis.com/search?&show-fields=headline&api-key=150b0c4d-fcad-470a-a579-0424d80c045a";
+    public static final String API_REQUEST_URL = "https://content.guardianapis.com/search?&show-tags=contributor&show-fields=headline&api-key=150b0c4d-fcad-470a-a579-0424d80c045a";
     public static final int LOADER_ID = 1;
 
     private NewsAdapter mAdapter;

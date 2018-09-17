@@ -6,12 +6,14 @@ public class pojo {
     private String mSection;
     private String mDate;
     private String mURL;
-    public pojo(String headlineID, String headID, String sectionID, String dateID, String urlID) {
+    private String mAuthor;
+    public pojo(String headlineID, String headID, String sectionID, String dateID, String urlID, String authorID) {
         mHeadline = headlineID;
         mHead = headID;
         mSection = sectionID;
         mDate = dateID;
         mURL = urlID;
+        mAuthor = authorID;
     }
 
     public String getHeadline() {
@@ -32,5 +34,9 @@ public class pojo {
 
     public String getURL() {
         return mURL;
+    }
+
+    public String getAuthor() {
+        return mAuthor;
     }
 }
